@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 // Komponen Countdown Early Bird
 function EarlyBirdCountdown() {
-  const deadline = new Date("2025-09-30T23:59:59").getTime()
+  const deadline = new Date("2025-10-18T23:59:59").getTime()
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -159,8 +159,8 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* Countdown Early Bird 
-        <EarlyBirdCountdown /> */}
+        {/* Countdown Early Bird */}
+        <EarlyBirdCountdown /> 
       </div>
     </section>
   )
