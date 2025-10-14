@@ -168,7 +168,7 @@ function RegistrasiSection() {
               label="Ukuran Jersey"
               register={register("jersey")}
               error={errors.jersey?.message}
-              options={["S", "M", "L", "XL", "XXL"]}
+              options={["S (P=66, L=48, Lengan=21)", "M (P=68, L=50, Lengan=22)", "L (P=71, L=52, Lengan=23)", "XL (P=74, L=54, Lengan=24)", "XXL (P=77, L=56, Lengan=25)"]}
             />
 
             <FormSelect
