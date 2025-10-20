@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 import Navbar from "@/components/Header"
 import Hero from "@/components/Hero"
 import TentangKami from "@/components/TentangKami"
-import Testimoni from "@/components/Testimoni"
+
 import Footer from "@/components/Footer"
 import HybridWhatsAppCTA from "@/components/HybridWhatsAppCTA"
 import PricingSection from "@/components/TiketSection";
