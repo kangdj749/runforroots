@@ -75,7 +75,7 @@ export default function WhyJoinSection() {
           ))}
         </div>
 
-        {/* Mini CTA dengan confetti */}
+        {/* Mini CTA dengan confetti 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ export default function WhyJoinSection() {
           >
             <a href="/registrasi">Daftar Sekarang</a>
           </Button>
-        </motion.div>
+        </motion.div>*/}
       </div>
     </section>
   )

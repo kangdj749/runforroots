@@ -161,11 +161,12 @@ export default function PricingSection() {
                 <h3 className="text-xl font-bold text-green-700 mb-4">{ticket.title}</h3>
 
                 <div className="mb-4">
-                  <p className="text-gray-400 line-through text-lg">
+                {/*  <p className="text-gray-400 line-through text-lg">
                     Rp {ticket.normal.toLocaleString("id-ID")}
                   </p>
+                  */}
                   <p className="text-3xl font-extrabold text-green-600">
-                    Rp {ticket.early.toLocaleString("id-ID")}
+                    Rp {ticket.normal.toLocaleString("id-ID")}
                   </p>
                 </div>
 
@@ -195,8 +196,8 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* Countdown Early Bird */}
-        <EarlyBirdCountdown /> 
+        {/* Countdown Early Bird 
+        <EarlyBirdCountdown /> */}
 
         {/* 🌿 Callout Inspiratif 
         <motion.div

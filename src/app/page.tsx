@@ -18,7 +18,12 @@ import WhyJoinSection from "@/components/WhyJoinSection";
 import RealisasiSection from "@/components/RealisasiSection";
 import OrganizerSection from "@/components/OrganizerSection";
 import SponsorSection from "@/components/SponsorSection";
+//import PrizeSection from "@/components/PrizeSection";
+import dynamic from "next/dynamic"
 
+const PrizeSection = dynamic(() => import("@/components/PrizeSection"), {
+  ssr: false,
+})
 
 interface SheetData {
   [key: string]: { elements: any[] };
@@ -91,6 +96,11 @@ const LandingPage: React.FC = () => {
           {/* Kenapa */}
           <section id="kenapa">
             <WhyJoinSection />
+          </section>
+
+        {/* Hadiah */}
+          <section id="hadiah">
+            <PrizeSection />
           </section>
 
         {/* Realisasi  */}
