@@ -9,8 +9,8 @@ export default function TimelineInteractive() {
     {
       title: "Seminar Krisis Iklim",
       date: "Sabtu, 25 Oktober 2025",
-      place: "Aula kampus / Gedung pertemuan di Bandung ",
-      time: "08.00 – 12.00 WIB",
+      place: "UIN SGD(Kampus 1) / Aula Auditorium Abdjan Soelaeman",
+      time: "07.30 – 12.05 WIB",
     },
     {
       title: "Charity Run",
