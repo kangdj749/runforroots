@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Trophy, Gift, Medal } from "lucide-react"
+import { Trophy, Gift, Medal, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function PrizeSection() {
@@ -91,6 +91,29 @@ export default function PrizeSection() {
           </p>
         </motion.div>
       </div>
+
+      {/* Promo Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mt-14 bg-gradient-to-r from-yellow-50 to-green-50 border border-green-100 rounded-3xl p-8 text-center max-w-3xl mx-auto shadow-sm"
+      >
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <Users className="text-green-600 w-6 h-6" />
+          <h3 className="text-xl md:text-2xl font-bold text-green-700">
+            Promo Komunitas & Teman Lari 🎫
+          </h3>
+        </div>
+        <p className="text-gray-700 text-base md:text-lg">
+          Daftar bareng temen makin seru!  
+          <b>Beli 5 tiket, GRATIS 1 tiket!</b> 🎉  
+        </p>
+        <p className="mt-3 text-sm text-gray-600">
+          Berlaku untuk pendaftaran kelompok atau komunitas. Yuk ajak geng lari kamu!
+        </p>
+      </motion.div>
 
       {/* CTA Section */}
       <motion.div
