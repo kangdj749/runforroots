@@ -1,16 +1,27 @@
 "use client"
 
+import { Suspense, useState } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { toast } from "sonner"
-import { Copy } from "lucide-react"
+import { Copy, QrCode } from "lucide-react"
 
-export default function KonfirmasiPage() {
+// 🔹 Wrapper agar aman di Vercel
+export default function KonfirmasiPageWrapper() {
+  return (
+    <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
+      <KonfirmasiPage />
+    </Suspense>
+  )
+}
+
+function KonfirmasiPage() {
   const params = useSearchParams()
   const data = Object.fromEntries(params.entries())
   const WHATSAPP_ADMIN = "6281322817712"
+  const [showQRIS, setShowQRIS] = useState(false)
 
   const msg = `Halo Panitia Run for Roots 🌱, saya sudah melakukan registrasi dan akan melakukan pembayaran:\n\n${Object.entries(
     data
@@ -18,7 +29,6 @@ export default function KonfirmasiPage() {
     .map(([k, v]) => `${k}: ${v}`)
     .join("\n")}`
 
-  // 🔹 Fungsi untuk menyalin nomor rekening
   const handleCopy = (norek: string) => {
     navigator.clipboard.writeText(norek)
     toast.success("Nomor rekening disalin ✅", {
@@ -42,13 +52,14 @@ export default function KonfirmasiPage() {
           terkonfirmasi.
         </p>
 
+        {/* ==== Rekening Bank ==== */}
         <div className="bg-green-50 p-5 rounded-2xl text-left text-sm mb-6 border border-green-100">
           <p className="font-semibold text-green-700 mb-3 text-base">
             💳 Pembayaran dapat dilakukan ke:
           </p>
 
           <ul className="space-y-3 text-gray-700">
-            <li className="flex flex-col bg-white/70 p-4 rounded-lg shadow-sm border border-green-100">
+            <li className="flex flex-col bg-white p-4 rounded-lg shadow-sm border border-green-100">
               <div className="flex items-center justify-between">
                 <span className="font-semibold text-green-700">🏦 BSI</span>
                 <button
@@ -64,7 +75,7 @@ export default function KonfirmasiPage() {
               </span>
             </li>
 
-            <li className="flex flex-col bg-white/70 p-4 rounded-lg shadow-sm border border-green-100">
+            <li className="flex flex-col bg-white p-4 rounded-lg shadow-sm border border-green-100">
               <div className="flex items-center justify-between">
                 <span className="font-semibold text-green-700">🏦 BCA</span>
                 <button
@@ -81,19 +92,15 @@ export default function KonfirmasiPage() {
             </li>
           </ul>
 
+          {/* ==== Tombol QRIS ==== */}
           <div className="mt-6 text-center">
-            <p className="font-semibold text-green-700 mb-2">
-              Atau scan QRIS berikut:
-            </p>
-            <div className="flex justify-center">
-              <Image
-                src="/qris-runforroots.jpg"
-                alt="QRIS Run for Roots"
-                width={320}
-                height={320}
-                className="rounded-2xl shadow-md border border-green-200 w-auto h-auto"
-              />
-            </div>
+            <Button
+              variant="outline"
+              className="border-green-600 text-green-700 hover:bg-green-100 flex items-center gap-2 mx-auto"
+              onClick={() => setShowQRIS(true)}
+            >
+              <QrCode size={16} /> Tampilkan QRIS Pembayaran
+            </Button>
           </div>
         </div>
 
@@ -114,6 +121,47 @@ export default function KonfirmasiPage() {
         >
           Konfirmasi via WhatsApp 📲
         </Button>
+
+        {/* ==== QRIS POPUP ==== */}
+        {showQRIS && (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-2xl p-6 shadow-xl max-w-sm w-full text-center relative"
+            >
+              <button
+                onClick={() => setShowQRIS(false)}
+                className="absolute top-2 right-3 text-gray-400 hover:text-gray-600 text-lg font-bold"
+              >
+                ×
+              </button>
+              <h2 className="text-lg font-semibold text-green-700 mb-3">
+                Scan QRIS untuk Pembayaran
+              </h2>
+              <div className="flex justify-center">
+                <Image
+                  src="/qris-runforroots.jpg"
+                  alt="QRIS Run for Roots"
+                  width={300}
+                  height={300}
+                  className="rounded-xl shadow-md border border-green-200"
+                />
+              </div>
+              <p className="text-xs text-gray-500 mt-3">
+                Pastikan nama penerima muncul sebagai{" "}
+                <b>Yayasan Graha Dhuafa Indonesia</b>
+              </p>
+              <Button
+                onClick={() => setShowQRIS(false)}
+                className="mt-5 bg-green-600 text-white w-full hover:bg-green-700"
+              >
+                Tutup
+              </Button>
+            </motion.div>
+          </div>
+        )}
       </motion.div>
     </section>
   )
