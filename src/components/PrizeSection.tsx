@@ -108,7 +108,7 @@ export default function PrizeSection() {
         </div>
         <p className="text-gray-700 text-base md:text-lg">
           Daftar bareng temen makin seru!  
-          <b>Beli 5 tiket, GRATIS 1 tiket!</b> 🎉  
+          <b>Daftar 5 Orang, Dapat 1 Tiket GRATIS 🎁</b>  
         </p>
         <p className="mt-3 text-sm text-gray-600">
           Berlaku untuk pendaftaran kelompok atau komunitas. Yuk ajak geng lari kamu!

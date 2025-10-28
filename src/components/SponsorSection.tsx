@@ -4,11 +4,23 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 const sponsors = [
-  { name: "Sponsor A", logo: "/logo-laz-gdi.png" },
-  { name: "Sponsor B", logo: "/NBL Png Green.png" },
-  { name: "Sponsor C", logo: "/logo-laz-gdi.png" },
-  { name: "Sponsor D", logo: "/NBL Png Green.png" },
-  { name: "Sponsor E", logo: "/logo-laz-gdi.png" },
+  { name: "Sponsor DETIK1NEWS", logo: "/DETIK1NEWS.jpeg" },
+  { name: "Sponsor GHC", logo: "/GHC.jpg" },
+  { name: "Sponsor GRAHA_OUTDOOR", logo: "/GRAHA_OUTDOOR.jpg" },
+  { name: "Sponsor HAP_MAGAZINE", logo: "/HAP_MAGAZINE.png" },
+  { name: "Sponsor lpk", logo: "/lpk.jpg" },
+  { name: "Sponsor oriskin", logo: "/oriskin.jpg" },
+  { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.png" },
+  { name: "Sponsor SB", logo: "/SB.png" },
+  { name: "Sponsor Sinar_Pagi_News", logo: "/Sinar_Pagi_News.png" },
+  { name: "Sponsor TEMPORATUR", logo: "/TEMPORATUR.png" },
+  { name: "Sponsor Twin_Tulipware", logo: "/Twin_Tulipware.jpg" },
+  { name: "Sponsor VISI_NEWS", logo: "/VISI_NEWS.jpg" },
+  { name: "Sponsor YD", logo: "/YD.png" },
+  { name: "Sponsor ALEXA", logo: "/ALEXA.jpg" },
+  { name: "Sponsor HAPHAP", logo: "/HAPHAP.png" },
+  { name: "Sponsor ADAKADO", logo: "/ADAKADO.jpg" },
+  { name: "Sponsor VENUS_FLORIST", logo: "/VENUS_FLORIST.jpg" },
 ]
 
 export default function SponsorSection() {

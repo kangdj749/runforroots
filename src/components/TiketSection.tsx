@@ -5,10 +5,9 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
-
-// Komponen Countdown Early Bird
-function EarlyBirdCountdown() {
-  const deadline = new Date("2025-10-18T23:59:59").getTime()
+// 🕒 Countdown Promo Sumpah Pemuda ke-97
+function SumpahPemudaCountdown() {
+  const deadline = new Date("2025-11-10T23:59:59").getTime()
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -40,7 +39,7 @@ function EarlyBirdCountdown() {
   return (
     <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg p-6 md:p-8 text-center border border-green-200 max-w-lg mx-auto">
       <h3 className="text-xl md:text-2xl font-bold text-green-700 mb-2">
-        🎟️ Early Bird Berakhir Dalam:
+        🎉 Promo Sumpah Pemuda ke-97 Berakhir Dalam:
       </h3>
 
       <div className="flex justify-center gap-3 sm:gap-6 mb-4">
@@ -60,33 +59,33 @@ function EarlyBirdCountdown() {
       </div>
 
       <p className="text-gray-600 text-sm md:text-base">
-        Amankan tiketmu sekarang sebelum harga naik ke normal! 🚀
+        Dapatkan harga spesial Sumpah Pemuda! Berlaku 28 Okt – 10 Nov 2025 🇮🇩🔥
       </p>
     </div>
   )
 }
 
-// Section Harga
+// 🏃 Section Harga Tiket
 export default function PricingSection() {
   const tickets = [
     {
       title: "FAMILY 2,5K",
       normal: 215000,
-      early: 155000,
+      promo: 167097,
       img: "/images/ticket-family.jpg",
       best: false,
     },
     {
       title: "CASUAL 5K",
       normal: 265000,
-      early: 185000,
+      promo: 197097,
       img: "/images/ticket-casual.jpg",
       best: true,
     },
     {
       title: "RACE 10K",
       normal: 355000,
-      early: 255000,
+      promo: 267097,
       img: "/images/ticket-race.jpg",
       best: false,
     },
@@ -112,12 +111,11 @@ export default function PricingSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-green-700">
-            Pilih Kategori Lari Kamu
+            Pilih Kategori Lari Kamu 🏃‍♂️
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Semua kategori sudah termasuk fasilitas berikut: jersey eksklusif, medali finisher,
-            produk sponsor, refreshment, dan nomor dada (BIB).  
-            Plus,{" "}
+            Rayakan semangat <b>Sumpah Pemuda ke-97</b> dengan ikut Run for Roots 🌿  
+            Semua kategori sudah termasuk fasilitas lengkap dan{" "}
             <span className="font-semibold text-green-700">
               25% dari harga tiket akan didonasikan untuk penanaman pohon & mangrove 🌱
             </span>
@@ -137,14 +135,13 @@ export default function PricingSection() {
                 ${ticket.best ? "border-green-500 ring-2 ring-green-400" : "border-green-100"}
                 hover:shadow-2xl hover:-translate-y-2`}
             >
-              {/* Badge Best Value */}
               {ticket.best && (
                 <div className="absolute top-3 right-3 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md z-20">
                   ⭐ Best Value
                 </div>
               )}
 
-              {/* Image Section with Hover Zoom */}
+              {/* Gambar */}
               <div className="relative w-full h-48 sm:h-56 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-green-700/40 via-transparent to-transparent z-10 opacity-70 group-hover:opacity-90 transition-all duration-300"></div>
                 <Image
@@ -158,15 +155,18 @@ export default function PricingSection() {
 
               {/* Info */}
               <div className="flex flex-col flex-grow p-8 text-center">
-                <h3 className="text-xl font-bold text-green-700 mb-4">{ticket.title}</h3>
+                <h3 className="text-xl font-bold text-green-700 mb-3">{ticket.title}</h3>
 
+                {/* Harga Promo */}
                 <div className="mb-4">
-                {/*  <p className="text-gray-400 line-through text-lg">
+                  <p className="text-gray-400 line-through text-lg">
                     Rp {ticket.normal.toLocaleString("id-ID")}
                   </p>
-                  */}
                   <p className="text-3xl font-extrabold text-green-600">
-                    Rp {ticket.normal.toLocaleString("id-ID")}
+                    Rp {ticket.promo.toLocaleString("id-ID")}
+                  </p>
+                  <p className="text-sm text-red-500 font-semibold mt-1">
+                    🎉 Spesial Promo Sumpah Pemuda ke-97!
                   </p>
                 </div>
 
@@ -196,26 +196,23 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* Countdown Early Bird 
-        <EarlyBirdCountdown /> */}
+        {/* ⏰ Countdown Promo */}
+        <SumpahPemudaCountdown />
 
-        {/* 🌿 Callout Inspiratif 
+        {/* 🌿 Callout Inspiratif */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center bg-gradient-to-r from-green-100 to-green-50 rounded-3xl p-8 shadow-inner max-w-3xl mx-auto"
+          className="text-center bg-gradient-to-r from-green-100 to-green-50 rounded-3xl p-8 shadow-inner max-w-3xl mx-auto mt-16"
         >
           <p className="text-green-800 text-lg md:text-xl font-medium leading-relaxed">
-            Setiap langkahmu bukan cuma tentang garis finish,  
-            tapi tentang jejak kebaikan yang menumbuhkan harapan baru 🌳💚
+            “Setiap langkahmu bukan cuma tentang garis finish,  
+            tapi tentang jejak kebaikan yang menumbuhkan harapan baru.” 🌳💚
           </p>
-        </motion.div>*/}
+        </motion.div>
       </div>
-      
     </section>
   )
 }
-
-

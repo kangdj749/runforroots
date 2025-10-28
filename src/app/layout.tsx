@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { GlobalToaster } from "@/components/GlobalToaster"
+import PromoBanner from "@/components/PromoBanner";
 
 export const metadata: Metadata = {
   title: "Run For Roots",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <GlobalToaster /> {/* harus ada supaya toast muncul di semua halaman */}
+        <PromoBanner/>
       </body>
     </html>
   );
