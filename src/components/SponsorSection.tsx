@@ -14,7 +14,7 @@ const sponsors = [
   { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.png" },
   { name: "Sponsor SB", logo: "/sahabatbaik.jpg" },
   { name: "Sponsor Sinar_Pagi_News", logo: "/Sinar_Pagi_News.png" },
-  { name: "Sponsor TEMPORATUR", logo: "/TEMPORATUR.png" },
+  { name: "Sponsor TEMPORATUR", logo: "/TEMPORATUR.jpg" },
   { name: "Sponsor Twin_Tulipware", logo: "/Twin_Tulipware.jpg" },
   { name: "Sponsor VISI_NEWS", logo: "/VISI_NEWS.jpg" },
   { name: "Sponsor YD", logo: "/YD.png" },
