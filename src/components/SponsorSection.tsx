@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 const sponsors = [
+  { name: "Sponsor soka", logo: "/soka.png" },
   { name: "Sponsor DETIK1NEWS", logo: "/DETIK1NEWS.jpeg" },
   { name: "Sponsor GHC", logo: "/GHC.jpg" },
   { name: "Sponsor GRAHA_OUTDOOR", logo: "/GRAHA_OUTDOOR.jpg" },
@@ -11,7 +12,7 @@ const sponsors = [
   { name: "Sponsor lpk", logo: "/lpk.jpg" },
   { name: "Sponsor oriskin", logo: "/oriskin.jpg" },
   { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.png" },
-  { name: "Sponsor SB", logo: "/SB.png" },
+  { name: "Sponsor SB", logo: "/sahabatbaik.jpg" },
   { name: "Sponsor Sinar_Pagi_News", logo: "/Sinar_Pagi_News.png" },
   { name: "Sponsor TEMPORATUR", logo: "/TEMPORATUR.png" },
   { name: "Sponsor Twin_Tulipware", logo: "/Twin_Tulipware.jpg" },
