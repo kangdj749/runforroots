@@ -22,6 +22,9 @@ const sponsors = [
   { name: "Sponsor HAPHAP", logo: "/HAPHAP.png" },
   { name: "Sponsor ADAKADO", logo: "/ADAKADO.jpg" },
   { name: "Sponsor VENUS_FLORIST", logo: "/VENUS_FLORIST.jpg" },
+  { name: "Sponsor ARJUNA_RUNNERS", logo: "/ARJUNA_RUNNERS.jpg" },
+  { name: "Sponsor Masjid_Runners", logo: "/Masjid_Runners.jpg" },
+  { name: "Sponsor OLAHRAGUYS", logo: "/OLAHRAGUYS.jpg" },
 ]
 
 export default function SponsorSection() {
