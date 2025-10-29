@@ -9,10 +9,10 @@ const navLinks = [
   { name: "Beranda", href: "#hero", id: "hero" },
   { name: "Tentang Event", href: "#tentang", id: "tentang" },
   { name: "Timeline", href: "#timeline", id: "timeline" },
-  { name: "Bentuk Kegiatan", href: "#rundown", id: "rundown" },
+ // { name: "Bentuk Kegiatan", href: "#rundown", id: "rundown" },
   { name: "Biaya", href: "#biaya", id: "biaya" },
   { name: "Kenapa Harus Ikut", href: "#kenapa", id: "kenapa" },
-  { name: "Realisasi", href: "#realisasi", id: "realisasi" },
+ // { name: "Realisasi", href: "#realisasi", id: "realisasi" },
 ]
 
 export default function Navbar() {

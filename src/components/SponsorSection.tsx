@@ -25,6 +25,8 @@ const sponsors = [
   { name: "Sponsor ARJUNA_RUNNERS", logo: "/ARJUNA_RUNNERS.jpg" },
   { name: "Sponsor Masjid_Runners", logo: "/Masjid_Runners.jpg" },
   { name: "Sponsor OLAHRAGUYS", logo: "/OLAHRAGUYS.jpg" },
+  { name: "Sponsor laridadakan", logo: "/laridadakan.jpeg" },
+  { name: "Sponsor nctzenbandung", logo: "/nctzenbandung.png" },
 ]
 
 export default function SponsorSection() {

@@ -45,14 +45,13 @@ export default function Hero() {
       >
         <h1 className="font-extrabold leading-tight text-[clamp(2rem,6vw,3.8rem)] drop-shadow-lg">
           🌱 Run for Roots 2025 <br />
-          <span className="text-green-200">Lari Sehat, Tanam Harapan!</span>
+          <span className="text-green-200">Lari Bersama, Pulihkan Bumi!</span>
         </h1>
 
         <p className="text-base md:text-lg text-green-100/90 max-w-2xl mx-auto leading-relaxed">
-          Ayo ikut charity run yang bukan cuma bikin badan sehat,
-          tapi juga bikin bumi kita kembali hijau.
+          Gabung di Run for Roots 2025, charity run yang mengubah energi positifmu jadi aksi nyata menanam ribuan pohon & mangrove untuk masa depan hijau Jawa Barat.
           <span className="block font-semibold text-green-200 mt-2">
-            Setiap langkahmu = kontribusi untuk penanaman 5.000 mangrove & pohon di Jawa Barat.
+            🏃‍♀️ Satu lari, sejuta dampak.
           </span>
         </p>
 
@@ -62,7 +61,7 @@ export default function Hero() {
             asChild
             className="bg-green-500 hover:bg-green-400 text-white rounded-2xl px-8 py-4 text-lg font-semibold shadow-lg hover:scale-105 transition"
           >
-            <a href={registrasiLink}>👉 Daftar Sekarang</a>
+            <a href={registrasiLink}>🌱 Daftar Sekarang & Jadi Bagian Perubahan</a>
           </Button>
         </div>
       </motion.div>
