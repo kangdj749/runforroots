@@ -25,9 +25,11 @@ const sponsors = [
   { name: "Sponsor VENUS_FLORIST", logo: "/VENUS_FLORIST.jpg" },
   { name: "Sponsor ARJUNA_RUNNERS", logo: "/ARJUNA_RUNNERS.jpg" },
   { name: "Sponsor Masjid_Runners", logo: "/Masjid_Runners.jpg" },
-  { name: "Sponsor OLAHRAGUYS", logo: "/OLAHRAGUYS.jpg" },
+  { name: "Sponsor OLAHRAGUYS", logo: "/OLAHRAGUYS_BW.png" },
   { name: "Sponsor laridadakan", logo: "/laridadakan.jpeg" },
   { name: "Sponsor nctzenbandung", logo: "/nctzenbandung.png" },
+  { name: "Sponsor TIBA-TIBA LARI", logo: "/TIBA-TIBA LARI.png" },
+  
 ] 
 
 export default function SponsorSection() {
