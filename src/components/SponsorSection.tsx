@@ -10,7 +10,7 @@ const sponsors = [
   { name: "Sponsor GHC", logo: "/GHC.jpg" },
   { name: "Sponsor GRAHA_OUTDOOR", logo: "/GRAHA_OUTDOOR.jpg" },
   { name: "Sponsor HAP_MAGAZINE", logo: "/HAP_MAGAZINE.png" },
-  { name: "Sponsor lpk", logo: "/lpk.jpg" },
+  { name: "Sponsor lpk", logo: "/LPK.png" },
   { name: "Sponsor oriskin", logo: "/oriskin.jpg" },
   { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.png" },
   { name: "Sponsor SB", logo: "/sahabatbaik.jpg" },
