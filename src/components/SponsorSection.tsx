@@ -5,6 +5,7 @@ import Image from "next/image"
 
 const sponsors = [
   { name: "Sponsor soka", logo: "/soka.png" },
+  { name: "Sponsor TV_HARMONI", logo: "/TV_HARMONI.png" },
   { name: "Sponsor DETIK1NEWS", logo: "/DETIK1NEWS.jpeg" },
   { name: "Sponsor GHC", logo: "/GHC.jpg" },
   { name: "Sponsor GRAHA_OUTDOOR", logo: "/GRAHA_OUTDOOR.jpg" },
@@ -27,7 +28,7 @@ const sponsors = [
   { name: "Sponsor OLAHRAGUYS", logo: "/OLAHRAGUYS.jpg" },
   { name: "Sponsor laridadakan", logo: "/laridadakan.jpeg" },
   { name: "Sponsor nctzenbandung", logo: "/nctzenbandung.png" },
-]
+] 
 
 export default function SponsorSection() {
   return (
