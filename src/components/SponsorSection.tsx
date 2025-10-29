@@ -4,21 +4,20 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 const sponsors = [
+  { name: "Sponsor im3_platinum", logo: "/im3_platinum.png" },
   { name: "Sponsor soka", logo: "/soka.png" },
   { name: "Sponsor TV_HARMONI", logo: "/TV_HARMONI.png" },
+  { name: "Sponsor oriskin", logo: "/oriskin.jpg" },
+  { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.png" },
+  { name: "Sponsor SB", logo: "/sahabatbaik.jpg" },
   { name: "Sponsor DETIK1NEWS", logo: "/DETIK1NEWS.jpeg" },
+  { name: "Sponsor Sinar_Pagi_News", logo: "/Sinar_Pagi_News.png" },
   { name: "Sponsor GHC", logo: "/GHC.jpg" },
   { name: "Sponsor GRAHA_OUTDOOR", logo: "/GRAHA_OUTDOOR.jpg" },
   { name: "Sponsor HAP_MAGAZINE", logo: "/HAP_MAGAZINE.png" },
   { name: "Sponsor lpk", logo: "/LPK.png" },
-  { name: "Sponsor oriskin", logo: "/oriskin.jpg" },
-  { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.png" },
-  { name: "Sponsor SB", logo: "/sahabatbaik.jpg" },
-  { name: "Sponsor Sinar_Pagi_News", logo: "/Sinar_Pagi_News.png" },
   { name: "Sponsor TEMPORATUR", logo: "/TEMPORATUR.jpg" },
-  { name: "Sponsor Twin_Tulipware", logo: "/Twin_Tulipware.jpg" },
   { name: "Sponsor VISI_NEWS", logo: "/VISI_NEWS.jpg" },
-  { name: "Sponsor YD", logo: "/YD.png" },
   { name: "Sponsor ALEXA", logo: "/ALEXA.jpg" },
   { name: "Sponsor HAPHAP", logo: "/HAPHAP.png" },
   { name: "Sponsor ADAKADO", logo: "/ADAKADO.jpg" },
@@ -29,6 +28,8 @@ const sponsors = [
   { name: "Sponsor laridadakan", logo: "/laridadakan.jpeg" },
   { name: "Sponsor nctzenbandung", logo: "/nctzenbandung.png" },
   { name: "Sponsor TIBA-TIBA LARI", logo: "/TIBA-TIBA LARI.png" },
+  { name: "Sponsor Twin_Tulipware", logo: "/Twin_Tulipware.jpg" },
+  { name: "Sponsor YD", logo: "/YD.png" },
   
 ] 
 
