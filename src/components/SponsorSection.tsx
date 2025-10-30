@@ -7,6 +7,8 @@ const sponsors = [
   { name: "Sponsor im3_platinum", logo: "/im3_platinum.png" },
   { name: "Sponsor soka", logo: "/soka.png" },
   { name: "Sponsor TV_HARMONI", logo: "/TV_HARMONI.png" },
+  { name: "Sponsor saung_taaruf", logo: "/saung_taaruf.png" },
+  { name: "Sponsor jnc_cookies", logo: "/jnc_cookies.png" },
   { name: "Sponsor oriskin", logo: "/oriskin.jpg" },
   { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.png" },
   { name: "Sponsor SB", logo: "/sahabatbaik.jpg" },
