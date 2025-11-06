@@ -20,6 +20,7 @@ import OrganizerSection from "@/components/OrganizerSection";
 import SponsorSection from "@/components/SponsorSection";
 //import PrizeSection from "@/components/PrizeSection";
 import dynamic from "next/dynamic"
+import MerchandiseSection from "@/components/MerchandiseSection";
 
 const PrizeSection = dynamic(() => import("@/components/PrizeSection"), {
   ssr: false,
@@ -101,6 +102,11 @@ const LandingPage: React.FC = () => {
         {/* Hadiah */}
           <section id="hadiah">
             <PrizeSection />
+          </section>
+
+        {/* Merchand */}
+          <section id="Merchand">
+            <MerchandiseSection />
           </section>
 
         {/* Realisasi  */}

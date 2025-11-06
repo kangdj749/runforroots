@@ -21,7 +21,7 @@ export default function TimelineInteractive() {
     {
       title: "Penanaman Mangrove",
       date: "Minggu, 28 Desember 2025",
-      place: "Pantai Pondok Putri Desa Legonwetan, Kec. Legonkulon,Kab. Subang",
+      place: "Pantai Pondok Putri Desa Legonwetan, Kec. Legonkulon, Kab. Subang",
       time: "06.00 – 12.00 WIB",
     },
     {
@@ -108,6 +108,25 @@ export default function TimelineInteractive() {
             )
           })}
         </div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <h3 className="text-2xl font-semibold text-green-700 mb-4">
+            Pilih jarakmu dan mulai langkah hijau!
+          </h3>
+          <a
+            href="/registrasi"
+            className="inline-block px-8 py-4 bg-green-600 text-white font-semibold text-lg rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
+          >
+            Daftar Sekarang 🌿
+          </a>
+        </motion.div>
       </div>
     </section>
   )
