@@ -29,7 +29,7 @@ export default function OrganizerSection() {
           {/* Logo LAZ GDI */}
           <div className="relative w-40 h-20 md:w-48 md:h-24 grayscale hover:grayscale-0 transition duration-300">
             <Image
-              src="/logo-laz-gdi.png" // ganti dengan path logo asli
+              src="/logo-laz-gdi.webp" // ganti dengan path logo asli
               alt="Logo LAZ GDI"
               fill
               className="object-contain"
@@ -39,7 +39,7 @@ export default function OrganizerSection() {
           {/* Logo Nusa Bumi Lestari */}
           <div className="relative w-40 h-20 md:w-48 md:h-24 grayscale hover:grayscale-0 transition duration-300">
             <Image
-              src="/NBL Png Green.png" // ganti dengan path logo asli
+              src="/NBL Png Green.webp" // ganti dengan path logo asli
               alt="Logo Yayasan Nusa Bumi Lestari"
               fill
               className="object-contain"

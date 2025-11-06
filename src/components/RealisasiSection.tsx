@@ -11,14 +11,14 @@ export default function RealisasiSection() {
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
 
   const images = [
-    "/images/nusabumilestari1.jpg",
-    "/images/nusabumilestari2.jpg",
-    "/images/nusabumilestari3.jpg",
-    "/images/nusabumilestari4.jpg",
-    "/images/nusabumilestari5.jpg",
-    "/images/nusabumilestari6.jpg",
-    "/images/nusabumilestari7.jpg",
-    "/images/nusabumilestari8.jpg",
+    "/images/nusabumilestari1.webp",
+    "/images/nusabumilestari2.webp",
+    "/images/nusabumilestari3.webp",
+    "/images/nusabumilestari4.webp",
+    "/images/nusabumilestari5.webp",
+    "/images/nusabumilestari6.webp",
+    "/images/nusabumilestari7.webp",
+    "/images/nusabumilestari8.webp",
   ]
 
   // Autoplay & dot updates
