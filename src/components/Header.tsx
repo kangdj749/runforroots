@@ -9,10 +9,8 @@ const navLinks = [
   { name: "Beranda", href: "#hero", id: "hero" },
   { name: "Tentang Event", href: "#tentang", id: "tentang" },
   { name: "Timeline", href: "#timeline", id: "timeline" },
- // { name: "Bentuk Kegiatan", href: "#rundown", id: "rundown" },
   { name: "Biaya", href: "#biaya", id: "biaya" },
   { name: "Kenapa Harus Ikut", href: "#kenapa", id: "kenapa" },
- // { name: "Realisasi", href: "#realisasi", id: "realisasi" },
 ]
 
 export default function Navbar() {
@@ -20,12 +18,12 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
 
-  // Efek smooth scroll untuk semua anchor link
+  // Smooth scroll behavior
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth"
   }, [])
 
-  // Deteksi scroll untuk background navbar
+  // Scroll background effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10)
@@ -34,7 +32,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Scroll Spy pakai IntersectionObserver
+  // Scroll spy
   useEffect(() => {
     const sections = navLinks.map((link) =>
       document.querySelector(link.href)
@@ -62,12 +60,12 @@ export default function Navbar() {
     }
   }, [])
 
-  // Fungsi klik nav → smooth scroll + close mobile menu
+  // Handle click link
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     const target = document.querySelector(href)
     if (target) {
-      const offset = -70 // jarak untuk header tinggi 70px
+      const offset = -70
       const topPosition = target.getBoundingClientRect().top + window.scrollY + offset
       window.scrollTo({ top: topPosition, behavior: "smooth" })
     }
@@ -76,11 +74,11 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 font-sans transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-[9999] font-sans transition-all duration-300 ${
         scrolled ? "shadow-lg" : ""
       }`}
     >
-      {/* Navbar Wrapper */}
+      {/* Navbar background */}
       <div
         className={`backdrop-blur-xl border-b transition-all duration-300 ${
           scrolled
@@ -89,7 +87,7 @@ export default function Navbar() {
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-          {/* Logo + Brand */}
+          {/* Logo */}
           <a href="#hero" className="flex items-center gap-3 group">
             <div className="relative w-9 h-9 md:w-11 md:h-11">
               <Image
@@ -109,7 +107,7 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Desktop Menu */}
+          {/* Desktop menu */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link, i) => {
               const isActive = activeSection === link.id
@@ -133,13 +131,13 @@ export default function Navbar() {
                     className={`absolute left-0 -bottom-1 h-[2px] transition-all duration-300 ${
                       isActive ? "w-full" : "w-0 group-hover:w-full"
                     } ${scrolled ? "bg-green-600" : "bg-green-300"}`}
-                  ></span>
+                  />
                 </a>
               )
             })}
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`md:hidden transition-colors ${
@@ -152,15 +150,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile dropdown menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-green-100 shadow-lg"
+            className="md:hidden fixed top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-green-100 shadow-xl z-[10000]"
           >
             <nav className="flex flex-col p-6 space-y-4">
               {navLinks.map((link, i) => {
@@ -170,7 +168,7 @@ export default function Navbar() {
                     key={i}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`text-base font-medium transition ${
+                    className={`text-base font-medium transition-all ${
                       isActive
                         ? "text-green-700 font-semibold"
                         : "text-gray-700 hover:text-green-700"
