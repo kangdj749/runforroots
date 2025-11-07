@@ -35,6 +35,8 @@ const sponsors = [
   { name: "Sponsor TIBA-TIBA LARI", logo: "/BANJARUN.webp" },
   { name: "Sponsor TIBA-TIBA LARI", logo: "/FAKERUNNERS.webp" },
   { name: "Sponsor Twin_Tulipware", logo: "/Twin_Tulipware.webp" },
+  { name: "Sponsor cuciwangi", logo: "/cuciwangi.webp" },
+  { name: "Sponsor IVENTMEDIA", logo: "/IVENTMEDIA.webp" },
   { name: "Sponsor YD", logo: "/YD.webp" },
   
 ] 
