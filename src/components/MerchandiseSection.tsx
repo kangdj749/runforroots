@@ -15,7 +15,7 @@ export default function MerchandiseSection(): React.ReactElement {
 
   const items: MerchandiseItem[] = [
     {
-      img: "/images/JERSEY_MOCKUP_2,5K.webp",
+      img: "/images/JERSEY_MOCKUP_25K.webp",
       title: "Official Jersey Run for Roots 2025",
       desc: "Desain breathable & eco-fabric — nyaman dipakai lari jarak jauh 🌿",
     },
@@ -26,6 +26,11 @@ export default function MerchandiseSection(): React.ReactElement {
     },
     {
       img: "/images/JERSEY_MOCKUP_10K.webp",
+      title: "Official Jersey Run for Roots 2025",
+      desc: "Desain breathable & eco-fabric — nyaman dipakai lari jarak jauh 🌿",
+    },
+    {
+      img: "/images/JERSEY_MOCKUP_chart.webp",
       title: "Official Jersey Run for Roots 2025",
       desc: "Desain breathable & eco-fabric — nyaman dipakai lari jarak jauh 🌿",
     },
