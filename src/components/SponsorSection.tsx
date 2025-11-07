@@ -5,6 +5,7 @@ import Image from "next/image"
 
 const sponsors = [
   { name: "Sponsor im3_platinum", logo: "/im3_platinum.webp" },
+  { name: "Sponsor soka", logo: "/KALBE.webp" },
   { name: "Sponsor soka", logo: "/soka.webp" },
   { name: "Sponsor TV_HARMONI", logo: "/TV_HARMONI.webp" },
   { name: "Sponsor saung_taaruf", logo: "/GRAHA_AQIQAH.webp" },
