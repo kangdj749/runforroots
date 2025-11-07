@@ -38,6 +38,8 @@ const sponsors = [
   { name: "Sponsor cuciwangi", logo: "/cuciwangi.webp" },
   { name: "Sponsor IVENTMEDIA", logo: "/IVENTMEDIA.webp" },
   { name: "Sponsor YD", logo: "/YD.webp" },
+  { name: "Sponsor WPM", logo: "/WPM.webp" },
+  { name: "Sponsor KING_OF_MEDALI", logo: "/KING_OF_MEDALI.webp" },
   
 ] 
 
