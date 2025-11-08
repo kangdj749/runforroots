@@ -121,7 +121,7 @@ export default function TimelineInteractive() {
             Pilih jarakmu dan mulai langkah hijau!
           </h3>
           <a
-            href="/registrasi"
+            href="/registrasi" data-action="daftar"
             className="inline-block px-8 py-4 bg-green-600 text-white font-semibold text-lg rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
           >
             Daftar Sekarang 🌿

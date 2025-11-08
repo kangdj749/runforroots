@@ -189,7 +189,7 @@ export default function PricingSection() {
                         : "bg-green-500 hover:bg-green-400 text-white"
                     }`}
                 >
-                  <a href="/registrasi">Daftar Sekarang</a>
+                  <a href="/registrasi" data-action="daftar">Daftar Sekarang</a>
                 </Button>
               </div>
             </motion.div>

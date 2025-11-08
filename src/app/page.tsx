@@ -34,53 +34,48 @@ const LandingPage: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+  AOS.init({ duration: 1000, once: true });
 
-    // ✅ pastikan pixel sudah siap
-    const checkPixel = setInterval(() => {
-      if (typeof window.fbq === "function") {
-        fbq("track", "ViewContent", {
-          content_name: "Landing Page Run for Roots",
-        });
-        clearInterval(checkPixel);
-      }
-    }, 500);
+  // ✅ ViewContent satu kali
+  fbq("track", "ViewContent", {
+    content_name: "Landing Page Run for Roots",
+  });
 
-    // ✅ Global listener untuk tombol “Daftar”
-    const handleClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const link = target.closest(
-        "a[href], button[data-action='daftar'], a[data-action='daftar']"
-      );
+  // ✅ track klik tombol daftar (gunakan data-action)
+  const daftarButtons = document.querySelectorAll("[data-action='daftar']");
+  const handleDaftarClick = (e: Event) => {
+    const btn = e.currentTarget as HTMLElement;
+    const href = (btn as HTMLAnchorElement).getAttribute("href") || "";
 
-      if (link) {
-        const href = (link as HTMLAnchorElement).getAttribute("href") || "";
-        if (href.includes("registrasi")) {
-          const url = new URL(href, window.location.origin);
-          let fundriser = url.searchParams.get("fundriser");
+    let fundriser: string | null = null;
+    if (href.includes("fundriser=")) {
+      const url = new URL(href, window.location.origin);
+      fundriser = url.searchParams.get("fundriser");
+    }
+    if (!fundriser && typeof window !== "undefined") {
+      fundriser = localStorage.getItem("fundriser") || "Tanpa Fundriser";
+    }
 
-          if (!fundriser && typeof window !== "undefined") {
-            fundriser = localStorage.getItem("fundriser") || "Tanpa Fundriser";
-          }
+    fbq("track", "InitiateCheckout", {
+      content_name: "Registrasi",
+      currency: "IDR",
+      fundriser,
+    });
 
-          fbq("track", "InitiateCheckout", {
-            content_name: "Registrasi",
-            content_category: "Fundriser",
-            currency: "IDR",
-            fundriser: fundriser,
-          });
+    console.log("📊 Meta Pixel: InitiateCheckout", { fundriser });
+  };
 
-          console.log("📈 Meta Pixel Event: InitiateCheckout", { fundriser });
-        }
-      }
-    };
+  daftarButtons.forEach((btn) =>
+    btn.addEventListener("click", handleDaftarClick)
+  );
 
-    document.addEventListener("click", handleClick);
-    return () => {
-      clearInterval(checkPixel);
-      document.removeEventListener("click", handleClick);
-    };
-  }, []);
+  return () => {
+    daftarButtons.forEach((btn) =>
+      btn.removeEventListener("click", handleDaftarClick)
+    );
+  };
+}, []);
+
 
   return (
     <main className="relative">

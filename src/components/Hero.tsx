@@ -67,7 +67,7 @@ export default function Hero() {
             asChild
             className="bg-green-500 hover:bg-green-400 text-white rounded-2xl px-8 py-4 text-base sm:text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
           >
-            <a href={registrasiLink}>
+            <a href={registrasiLink} data-action="daftar">
               🌱 Daftar Sekarang & Jadi Bagian Perubahan
             </a>
           </Button>

@@ -135,7 +135,7 @@ export default function PrizeSection() {
           onClick={handleConfetti}
           className="bg-white text-green-700 font-bold rounded-xl px-8 py-4 hover:scale-105 hover:bg-green-50 transition"
         >
-          <a href="/registrasi">Daftar Sekarang</a>
+          <a href="/registrasi" data-action="daftar">Daftar Sekarang</a>
         </Button>
       </motion.div>
     </section>
