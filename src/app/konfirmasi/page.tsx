@@ -48,12 +48,14 @@ function KonfirmasiPage() {
         fundriser,
         kategori,
         pembayaran,
+        test_event_code: "TEST23204", // 🧩 tambahkan kode test di sini
       })
 
       console.log("📊 FB Pixel: CompleteRegistration terkirim", {
         fundriser,
         kategori,
         pembayaran,
+        test_event_code: "TEST23204",
       })
     }
   }, [data])
