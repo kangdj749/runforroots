@@ -36,31 +36,33 @@ const LandingPage: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
 
-    // ✅ track saat user membuka landing page
-    fbq('track', 'ViewContent', {
-      content_name: 'Landing Page Run for Roots',
-    });
-
+    // ✅ pastikan pixel sudah siap
+    const checkPixel = setInterval(() => {
+      if (typeof window.fbq === "function") {
+        fbq("track", "ViewContent", {
+          content_name: "Landing Page Run for Roots",
+        });
+        clearInterval(checkPixel);
+      }
+    }, 500);
 
     // ✅ Global listener untuk tombol “Daftar”
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const link = target.closest("a[href], button[data-action='daftar'], a[data-action='daftar']");
+      const link = target.closest(
+        "a[href], button[data-action='daftar'], a[data-action='daftar']"
+      );
 
       if (link) {
         const href = (link as HTMLAnchorElement).getAttribute("href") || "";
         if (href.includes("registrasi")) {
-          // ambil fundriser dari URL (jika ada)
           const url = new URL(href, window.location.origin);
-          // ambil fundriser dari URL atau localStorage (fallback)
           let fundriser = url.searchParams.get("fundriser");
 
           if (!fundriser && typeof window !== "undefined") {
             fundriser = localStorage.getItem("fundriser") || "Tanpa Fundriser";
           }
 
-
-          // ✅ ganti Lead → InitiateCheckout
           fbq("track", "InitiateCheckout", {
             content_name: "Registrasi",
             content_category: "Fundriser",
@@ -74,73 +76,61 @@ const LandingPage: React.FC = () => {
     };
 
     document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+    return () => {
+      clearInterval(checkPixel);
+      document.removeEventListener("click", handleClick);
+    };
   }, []);
 
   return (
     <main className="relative">
-      {/* Navbar */}
       <Navbar />
 
-      {/* Hero */}
       <section id="hero">
         <Hero />
       </section>
 
-      {/* Tentang Kami */}
       <section id="tentang">
         <TentangKami />
       </section>
 
-      {/* Organizer */}
       <section id="organizer">
         <OrganizerSection />
       </section>
 
-      {/* Time Line */}
       <section id="timeline">
         <TimelineSection />
       </section>
 
-      {/* Testimoni */}
       <section id="rundown">
         <RundownSection />
       </section>
 
-      {/* Tiket */}
       <section id="biaya">
         <PricingSection />
       </section>
 
-      {/* Kenapa */}
       <section id="kenapa">
         <WhyJoinSection />
       </section>
 
-      {/* Hadiah */}
       <section id="hadiah">
         <PrizeSection />
       </section>
 
-      {/* Merchand */}
       <section id="Merchand">
         <MerchandiseSection />
       </section>
 
-      {/* Realisasi */}
       <section>
         <RealisasiSection />
       </section>
 
-      {/* Sponsor */}
       <section>
         <SponsorSection />
       </section>
 
-      {/* Footer */}
       <Footer />
-
-      {/* WhatsApp CTA hybrid */}
       <HybridWhatsAppCTA />
     </main>
   );
