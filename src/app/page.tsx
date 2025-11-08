@@ -41,26 +41,6 @@ const LandingPage: React.FC = () => {
       content_name: 'Landing Page Run for Roots',
     });
 
-    const sheetId = "YOUR_SPREADSHEET_ID";
-    const sections = ["Hero", "Fitur", "Harga", "Kontak", "Testimoni"];
-
-    const fetchSheetData = async () => {
-      try {
-        const data: SheetData = {};
-        await Promise.all(
-          sections.map(async (section) => {
-            const response = await fetch(`https://opensheet.elk.sh/${sheetId}/${section}`);
-            const json = await response.json();
-            data[section] = { elements: json };
-          })
-        );
-        setSheetData(data);
-      } catch (err) {
-        console.error("Error fetching sheet data:", err);
-      }
-    };
-
-    fetchSheetData();
 
     // ✅ Global listener untuk tombol “Daftar”
     const handleClick = (e: MouseEvent) => {
