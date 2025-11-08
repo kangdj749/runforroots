@@ -1,6 +1,6 @@
 "use client"
 
-import { Suspense, useState } from "react"
+import { Suspense, useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -8,7 +8,6 @@ import { motion } from "framer-motion"
 import { toast } from "sonner"
 import { Copy, QrCode } from "lucide-react"
 
-// 🔹 Wrapper agar aman di Vercel
 export default function KonfirmasiPageWrapper() {
   return (
     <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
@@ -35,6 +34,29 @@ function KonfirmasiPage() {
       description: norek,
     })
   }
+
+  // 🔹 Meta Pixel: track CompleteRegistration sekali saat halaman ini terbuka
+  useEffect(() => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      const fbq = (window as any).fbq
+      // ambil beberapa data penting (optional, aman kalau gak ada)
+      const fundriser = data.fundriser || localStorage.getItem("fundriser") || "Tanpa Fundriser"
+      const kategori = data.lari || "Unknown"
+      const pembayaran = data.pembayaran || "Unknown"
+
+      fbq("track", "CompleteRegistration", {
+        fundriser,
+        kategori,
+        pembayaran,
+      })
+
+      console.log("📊 FB Pixel: CompleteRegistration terkirim", {
+        fundriser,
+        kategori,
+        pembayaran,
+      })
+    }
+  }, [data])
 
   return (
     <section className="min-h-screen bg-green-50 flex items-center justify-center px-4 py-10">
