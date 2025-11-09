@@ -36,24 +36,28 @@ const LandingPage: React.FC = () => {
   useEffect(() => {
   AOS.init({ duration: 1000, once: true });
 
-  // ✅ ViewContent satu kali
+  // ✅ Kirim ViewContent hanya 1x per kunjungan
   fbq("track", "ViewContent", {
     content_name: "Landing Page Run for Roots",
   });
 
-  // ✅ track klik tombol daftar (gunakan data-action)
   const daftarButtons = document.querySelectorAll("[data-action='daftar']");
+
   const handleDaftarClick = (e: Event) => {
-    const btn = e.currentTarget as HTMLElement;
-    const href = (btn as HTMLAnchorElement).getAttribute("href") || "";
+    const btn = e.currentTarget as HTMLAnchorElement;
+    const href = btn.getAttribute("href") || "";
 
     let fundriser: string | null = null;
-    if (href.includes("fundriser=")) {
-      const url = new URL(href, window.location.origin);
-      fundriser = url.searchParams.get("fundriser");
-    }
-    if (!fundriser && typeof window !== "undefined") {
-      fundriser = localStorage.getItem("fundriser") || "Tanpa Fundriser";
+    try {
+      if (href.includes("fundriser=")) {
+        const url = new URL(href, window.location.origin);
+        fundriser = url.searchParams.get("fundriser");
+      }
+      if (!fundriser) {
+        fundriser = localStorage.getItem("fundriser") || "Tanpa Fundriser";
+      }
+    } catch (err) {
+      console.warn("URL parsing error", err);
     }
 
     fbq("track", "InitiateCheckout", {
@@ -75,6 +79,7 @@ const LandingPage: React.FC = () => {
     );
   };
 }, []);
+
 
 
   return (

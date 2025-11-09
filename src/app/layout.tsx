@@ -12,8 +12,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
+      <head />
       <body>
-        <MetaPixel /> {/* Meta Pixel dimuat di semua halaman */}
+        {/* ✅ Muat Meta Pixel HANYA SEKALI di layout root */}
+        <MetaPixel />
         {children}
         <GlobalToaster />
         <PromoBanner />

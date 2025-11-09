@@ -1,38 +1,42 @@
 "use client";
 
 import Script from "next/script";
-import { META_PIXEL_ID } from "@/lib/metaPixel";
+import { useEffect } from "react";
+
+const META_PIXEL_ID = "1582218019805439";
 
 export default function MetaPixel() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // ✅ Hindari inisialisasi ulang di navigasi client-side
+    if ((window as any)._fbPixelInitialized) return;
+    (window as any)._fbPixelInitialized = true;
+
+    console.log("✅ Meta Pixel initialized");
+  }, []);
+
   return (
     <>
-      <Script id="meta-pixel" strategy="afterInteractive">
-        {`
-          if (!window._fbPixelLoaded) {
-            !(function(f,b,e,v,n,t,s){
-              if(f.fbq) return;
-              n=f.fbq=function(){
-                n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)
-              };
-              if(!f._fbq) f._fbq=n;
-              n.push=n;
-              n.loaded=!0;
-              n.version='2.0';
-              n.queue=[];
-              t=b.createElement(e);
-              t.async=!0;
-              t.src=v;
-              s=b.getElementsByTagName(e)[0];
+      <Script
+        id="meta-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s){
+              if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)
-            })(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
+            }(window, document, 'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${META_PIXEL_ID}');
             fbq('track', 'PageView');
-            window._fbPixelLoaded = true;
-          }
-        `}
-      </Script>
-
+          `,
+        }}
+      />
       <noscript>
         <img
           height="1"

@@ -1,64 +1,66 @@
-"use client"
+"use client";
 
-import { Suspense, useState, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { toast } from "sonner"
-import { Copy, QrCode } from "lucide-react"
+import { Suspense, useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { toast } from "sonner";
+import { Copy, QrCode } from "lucide-react";
+import { fbq } from "@/lib/metaPixel"; // ✅ gunakan helper global
 
 export default function KonfirmasiPageWrapper() {
   return (
     <Suspense fallback={<div className="text-center py-20">Loading...</div>}>
       <KonfirmasiPage />
     </Suspense>
-  )
+  );
 }
 
 function KonfirmasiPage() {
-  const params = useSearchParams()
-  const data = Object.fromEntries(params.entries())
-  const WHATSAPP_ADMIN = "6281322817712"
-  const [showQRIS, setShowQRIS] = useState(false)
+  const params = useSearchParams();
+  const data = Object.fromEntries(params.entries());
+  const WHATSAPP_ADMIN = "6281322817712";
+  const [showQRIS, setShowQRIS] = useState(false);
+  const [hasTracked, setHasTracked] = useState(false); // ✅ cegah event double fire
 
   const msg = `Halo Panitia Run for Roots 🌱, saya sudah melakukan registrasi dan akan melakukan pembayaran:\n\n${Object.entries(
     data
   )
     .map(([k, v]) => `${k}: ${v}`)
-    .join("\n")}`
+    .join("\n")}`;
 
   const handleCopy = (norek: string) => {
-    navigator.clipboard.writeText(norek)
+    navigator.clipboard.writeText(norek);
     toast.success("Nomor rekening disalin ✅", {
       description: norek,
-    })
-  }
+    });
+  };
 
-  // 🔹 Meta Pixel: track CompleteRegistration sekali saat halaman ini terbuka
+  // 🔹 Meta Pixel: track CompleteRegistration sekali
   useEffect(() => {
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      const fbq = (window as any).fbq
-      // ambil beberapa data penting (optional, aman kalau gak ada)
-      const fundriser = data.fundriser || localStorage.getItem("fundriser") || "Tanpa Fundriser"
-      const kategori = data.lari || "Unknown"
-      const pembayaran = data.pembayaran || "Unknown"
+    if (hasTracked) return;
+    const fundriser =
+      data.fundriser || localStorage.getItem("fundriser") || "Tanpa Fundriser";
+    const kategori = data.lari || "Unknown";
+    const pembayaran = data.pembayaran || "Unknown";
 
-      fbq("track", "CompleteRegistration", {
-        fundriser,
-        kategori,
-        pembayaran,
-        test_event_code: "TEST23204", // 🧩 tambahkan kode test di sini
-      })
+    fbq("track", "CompleteRegistration", {
+      fundriser,
+      kategori,
+      pembayaran,
+      test_event_code: "TEST23204",
+    });
 
-      console.log("📊 FB Pixel: CompleteRegistration terkirim", {
-        fundriser,
-        kategori,
-        pembayaran,
-        test_event_code: "TEST23204",
-      })
-    }
-  }, [data])
+    console.log("📊 FB Pixel: CompleteRegistration terkirim", {
+      fundriser,
+      kategori,
+      pembayaran,
+      test_event_code: "TEST23204",
+    });
+
+    setHasTracked(true);
+  }, [data, hasTracked]);
 
   return (
     <section className="min-h-screen bg-green-50 flex items-center justify-center px-4 py-10">
@@ -72,8 +74,7 @@ function KonfirmasiPage() {
           Terima Kasih, {data.nama || "Peserta"}! 🎉
         </h1>
         <p className="text-gray-600 mb-6">
-          Pendaftaran kamu berhasil! Silakan selesaikan pembayaran agar slot kamu
-          terkonfirmasi.
+          Pendaftaran kamu berhasil! Silakan selesaikan pembayaran agar slot kamu terkonfirmasi.
         </p>
 
         {/* ==== Rekening Bank ==== */}
@@ -129,8 +130,7 @@ function KonfirmasiPage() {
         </div>
 
         <p className="text-sm text-gray-600 mb-6">
-          Setelah transfer, klik tombol di bawah untuk konfirmasi ke panitia via
-          WhatsApp dan kirim bukti pembayaran.
+          Setelah transfer, klik tombol di bawah untuk konfirmasi ke panitia via WhatsApp dan kirim bukti pembayaran.
         </p>
 
         <Button
@@ -188,5 +188,5 @@ function KonfirmasiPage() {
         )}
       </motion.div>
     </section>
-  )
+  );
 }
