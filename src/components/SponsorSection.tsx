@@ -14,6 +14,8 @@ const sponsors = [
   { name: "Sponsor oriskin", logo: "/oriskin.webp" },
   { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.webp" },
   { name: "Sponsor SB", logo: "/sahabatbaik.webp" },
+  { name: "Sponsor EIGER", logo: "/EIGER.webp" },
+  { name: "Sponsor MS GLOW", logo: "/MS GLOW.webp" },
   { name: "Sponsor DETIK1NEWS", logo: "/DETIK1NEWS.webp" },
   { name: "Sponsor Sinar_Pagi_News", logo: "/Sinar_Pagi_News.webp" },
   { name: "Sponsor GHC", logo: "/GHC.webp" },
