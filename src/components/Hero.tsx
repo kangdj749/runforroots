@@ -27,10 +27,10 @@ export default function Hero() {
 
   return (
     <section className="relative flex items-center justify-center w-full min-h-[100vh] sm:min-h-[90vh] overflow-hidden">
-      {/* Background Image (Next.js optimized) */}
+      {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/bg_runforroots2025.webp"
+          src="/bg_runforroots20255.webp"
           alt="Run for Roots 2025 - Fun Run Background"
           fill
           priority
@@ -61,14 +61,24 @@ export default function Hero() {
           </span>
         </p>
 
-        {/* CTA */}
+        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
           <Button
             asChild
             className="bg-green-500 hover:bg-green-400 text-white rounded-2xl px-8 py-4 text-base sm:text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
           >
             <a href={registrasiLink} data-action="daftar">
-              🌱 Daftar Sekarang & Jadi Bagian Perubahan
+              🌱 Daftar Sekarang
+            </a>
+          </Button>
+
+          <Button
+            asChild
+            variant="outline"
+            className="border-2 border-green-300 text-green-100 hover:bg-green-100/10 rounded-2xl px-8 py-4 text-base sm:text-lg font-semibold shadow-md hover:scale-105 transition-transform backdrop-blur-sm"
+          >
+            <a href="#pricing" data-action="lihat-harga">
+              🎟️ Lihat Harga & Kategori
             </a>
           </Button>
         </div>
