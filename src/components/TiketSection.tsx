@@ -5,6 +5,56 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
+// 🕒 Countdown untuk Flash Sale 11.11
+function FlashSaleCountdown() {
+  const deadline = new Date("2025-11-11T23:59:59").getTime()
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  })
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date().getTime()
+      const distance = deadline - now
+
+      if (distance <= 0) {
+        clearInterval(timer)
+        setTimeLeft({ hours: 0, minutes: 0, seconds: 0 })
+      } else {
+        setTimeLeft({
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000),
+        })
+      }
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [deadline])
+
+  return (
+    <div className="bg-yellow-50 border border-yellow-300 rounded-2xl p-6 text-center shadow-lg max-w-lg mx-auto">
+      <h3 className="text-xl md:text-2xl font-bold text-yellow-700 mb-2">
+        ⚡ Flash Sale 11.11 Berakhir Dalam:
+      </h3>
+      <div className="flex justify-center gap-4 mb-3">
+        {["hours", "minutes", "seconds"].map((unit, idx) => (
+          <div key={idx} className="bg-yellow-100 rounded-xl px-4 py-3 min-w-[60px]">
+            <div className="text-2xl font-extrabold text-yellow-700">
+              {timeLeft[unit as keyof typeof timeLeft]}
+            </div>
+            <div className="text-xs uppercase tracking-wide text-yellow-600">{unit}</div>
+          </div>
+        ))}
+      </div>
+      <p className="text-gray-700 text-sm md:text-base">
+        Harga super hemat cuma 11 November 2025 (00.00–23.59) 💥
+      </p>
+    </div>
+  )
+}
+
 // 🕒 Countdown Promo Sumpah Pemuda ke-97
 function SumpahPemudaCountdown() {
   const deadline = new Date("2025-11-10T23:59:59").getTime()
@@ -32,7 +82,6 @@ function SumpahPemudaCountdown() {
         })
       }
     }, 1000)
-
     return () => clearInterval(timer)
   }, [deadline])
 
@@ -46,7 +95,7 @@ function SumpahPemudaCountdown() {
         {["days", "hours", "minutes", "seconds"].map((unit, idx) => (
           <div
             key={idx}
-            className="bg-green-100 rounded-xl px-3 py-2 sm:px-4 sm:py-3 min-w-[60px] transition-all"
+            className="bg-green-100 rounded-xl px-3 py-2 sm:px-4 sm:py-3 min-w-[60px]"
           >
             <div className="text-2xl sm:text-3xl font-extrabold text-green-700">
               {timeLeft[unit as keyof typeof timeLeft]}
@@ -67,29 +116,20 @@ function SumpahPemudaCountdown() {
 
 // 🏃 Section Harga Tiket
 export default function PricingSection() {
-  const tickets = [
-    {
-      title: "FAMILY 2,5K",
-      normal: 215000,
-      promo: 167097,
-      img: "/images/ticket-family.webp",
-      best: false,
-    },
-    {
-      title: "CASUAL 5K",
-      normal: 265000,
-      promo: 197097,
-      img: "/images/ticket-casual.webp",
-      best: true,
-    },
-    {
-      title: "RACE 10K",
-      normal: 355000,
-      promo: 267097,
-      img: "/images/ticket-race.webp",
-      best: false,
-    },
-  ]
+  const today = new Date()
+  const isFlashSale = today.getFullYear() === 2025 && today.getMonth() === 10 && today.getDate() === 11
+
+  const tickets = isFlashSale
+    ? [
+        { title: "FAMILY 2.5K", normal: 215000, promo: 152000, img: "/images/ticket-family.webp", best: false },
+        { title: "CASUAL 5K", normal: 265000, promo: 182000, img: "/images/ticket-casual.webp", best: true },
+        { title: "RACE 10K", normal: 365000, promo: 250000, img: "/images/ticket-race.webp", best: false },
+      ]
+    : [
+        { title: "FAMILY 2.5K", normal: 215000, promo: 167097, img: "/images/ticket-family.webp", best: false },
+        { title: "CASUAL 5K", normal: 265000, promo: 197097, img: "/images/ticket-casual.webp", best: true },
+        { title: "RACE 10K", normal: 355000, promo: 267097, img: "/images/ticket-race.webp", best: false },
+      ]
 
   const facilities = [
     "Jersey eksklusif",
@@ -102,6 +142,32 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="relative bg-green-50 py-20 md:py-28">
       <div className="container mx-auto px-6">
+        {/* Banner promo dinamis */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className={`text-center mb-10 rounded-2xl p-4 md:p-6 font-semibold ${
+            isFlashSale
+              ? "bg-yellow-100 text-yellow-800 border border-yellow-300 shadow-md"
+              : "bg-green-100 text-green-800 border border-green-200 shadow-sm"
+          }`}
+        >
+          {isFlashSale ? (
+            <>
+              ⚡ <span className="text-xl font-bold">FLASH SALE 11.11!</span> Cuma Hari Ini —
+              11 November 2025! 🏃‍♀️  
+              <br /> Harga super hemat, jangan sampai ketinggalan 💥
+            </>
+          ) : (
+            <>
+              🇮🇩 <span className="text-xl font-bold">Promo Sumpah Pemuda ke-97</span>  
+              berlaku 28 Okt – 10 Nov 2025 ✨
+            </>
+          )}
+        </motion.div>
+
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -114,11 +180,23 @@ export default function PricingSection() {
             Pilih Kategori Lari Kamu 🏃‍♂️
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Rayakan semangat <b>Sumpah Pemuda ke-97</b> dengan ikut Run for Roots 🌿  
-            Semua kategori sudah termasuk fasilitas lengkap dan{" "}
-            <span className="font-semibold text-green-700">
-              25% dari harga tiket akan didonasikan untuk penanaman pohon & mangrove 🌱
-            </span>
+            {isFlashSale ? (
+              <>
+                ⚡ <b>Flash Sale 11.11</b> cuma hari ini! Harga super hemat tapi tetap berdampak
+                untuk bumi 🌍  
+                <span className="block mt-1 font-semibold text-green-700">
+                  25% dari tiket akan ditanam jadi pohon & mangrove 🌱
+                </span>
+              </>
+            ) : (
+              <>
+                Rayakan semangat <b>Sumpah Pemuda ke-97</b> dengan ikut Run for Roots 🌿  
+                Semua kategori sudah termasuk fasilitas lengkap dan{" "}
+                <span className="font-semibold text-green-700">
+                  25% dari harga tiket akan didonasikan untuk penanaman pohon & mangrove 🌱
+                </span>
+              </>
+            )}
           </p>
         </motion.div>
 
@@ -131,9 +209,9 @@ export default function PricingSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.2 }}
               viewport={{ once: true }}
-              className={`relative bg-white rounded-2xl overflow-hidden border transition-all duration-300 flex flex-col shadow-sm group
+              className={`relative bg-white rounded-2xl overflow-hidden border flex flex-col shadow-sm group
                 ${ticket.best ? "border-green-500 ring-2 ring-green-400" : "border-green-100"}
-                hover:shadow-2xl hover:-translate-y-2`}
+                hover:shadow-2xl hover:-translate-y-2 transition-all duration-300`}
             >
               {ticket.best && (
                 <div className="absolute top-3 right-3 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md z-20">
@@ -162,11 +240,11 @@ export default function PricingSection() {
                   <p className="text-gray-400 line-through text-lg">
                     Rp {ticket.normal.toLocaleString("id-ID")}
                   </p>
-                  <p className="text-3xl font-extrabold text-green-600">
+                  <p className={`text-3xl font-extrabold ${isFlashSale ? "text-yellow-600" : "text-green-600"}`}>
                     Rp {ticket.promo.toLocaleString("id-ID")}
                   </p>
-                  <p className="text-sm text-red-500 font-semibold mt-1">
-                    🎉 Spesial Promo Sumpah Pemuda ke-97!
+                  <p className={`text-sm font-semibold mt-1 ${isFlashSale ? "text-yellow-700" : "text-red-500"}`}>
+                    {isFlashSale ? "⚡ FLASH SALE 11.11 — Hanya Hari Ini!" : "🎉 Spesial Promo Sumpah Pemuda ke-97!"}
                   </p>
                 </div>
 
@@ -183,10 +261,9 @@ export default function PricingSection() {
                 <Button
                   asChild
                   className={`rounded-xl px-6 py-3 text-lg font-semibold shadow-md hover:scale-105 transition
-                    ${
-                      ticket.best
-                        ? "bg-green-600 hover:bg-green-500 text-white"
-                        : "bg-green-500 hover:bg-green-400 text-white"
+                    ${ticket.best
+                      ? "bg-green-600 hover:bg-green-500 text-white"
+                      : "bg-green-500 hover:bg-green-400 text-white"
                     }`}
                 >
                   <a href="/registrasi" data-action="daftar">Daftar Sekarang</a>
@@ -196,8 +273,8 @@ export default function PricingSection() {
           ))}
         </div>
 
-        {/* ⏰ Countdown Promo */}
-        <SumpahPemudaCountdown />
+        {/* ⏰ Countdown dinamis */}
+        {isFlashSale ? <FlashSaleCountdown /> : <SumpahPemudaCountdown />}
 
         {/* 🌿 Callout Inspiratif */}
         <motion.div

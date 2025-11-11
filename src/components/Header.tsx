@@ -91,7 +91,7 @@ export default function Navbar() {
           <a href="#hero" className="flex items-center gap-3 group">
             <div className="relative w-9 h-9 md:w-11 md:h-11">
               <Image
-                src="/RUN_FOR_ROOTS_LOGO_GREEN.png"
+                src="/logo_run_for_roots-2005.webp"
                 alt="Logo Run for Roots 2025"
                 fill
                 className="object-contain transition-transform duration-300 group-hover:scale-110"
