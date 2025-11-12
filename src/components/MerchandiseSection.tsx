@@ -35,7 +35,7 @@ export default function MerchandiseSection(): React.ReactElement {
       desc: "Desain breathable & eco-fabric — nyaman dipakai lari jarak jauh 🌿",
     },
     {
-      img: "/images/PREVIEW_MEDALI1.webp",
+      img: "/images/RACE PACK 2,5K.webp",
       title: "Finisher Medal",
       desc: "Simbol langkah nyata hijaukan bumi, eksklusif untuk finisher.",
     },
