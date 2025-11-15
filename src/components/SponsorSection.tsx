@@ -44,6 +44,8 @@ const sponsors = [
   { name: "Sponsor YD", logo: "/YD.webp" },
   { name: "Sponsor WPM", logo: "/WPM.webp" },
   { name: "Sponsor KING_OF_MEDALI", logo: "/KING_OF_MEDALI.webp" },
+  { name: "Sponsor INDONESIA MARATHON", logo: "/INDONESIA MARATHON.webp" },
+  { name: "Sponsor RUANG EVENT.ID", logo: "/RUANG EVENT.ID.webp" },
   
 ] 
 
