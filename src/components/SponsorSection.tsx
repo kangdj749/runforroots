@@ -11,6 +11,7 @@ const sponsors = [
   { name: "Sponsor TV_HARMONI", logo: "/TV_HARMONI.webp" },
   { name: "Sponsor GRAHA_AQIQAH", logo: "/GRAHA_AQIQAH.webp" },
   { name: "Sponsor saung_taaruf", logo: "/saung_taaruf.webp" },
+  { name: "Sponsor Salam Klinik", logo: "/Salam Klinik.webp" },
   { name: "Sponsor jnc_cookies", logo: "/jnc_cookies.webp" },
   { name: "Sponsor oriskin", logo: "/oriskin.webp" },
   { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.webp" },
@@ -46,6 +47,12 @@ const sponsors = [
   { name: "Sponsor KING_OF_MEDALI", logo: "/KING_OF_MEDALI.webp" },
   { name: "Sponsor INDONESIA MARATHON", logo: "/INDONESIA MARATHON.webp" },
   { name: "Sponsor RUANG EVENT.ID", logo: "/RUANG EVENT.ID.webp" },
+  { name: "Sponsor AYAM PENYET", logo: "/AYAM PENYET.webp" },
+  { name: "Sponsor MARKTEL", logo: "/MARKTEL.webp" },
+  { name: "Sponsor BTRC", logo: "/BTRC.webp" },
+  { name: "Sponsor WILL FITNESS", logo: "/WILL FITNESS.webp" },
+  { name: "Sponsor PELARI RETJEH", logo: "/PELARI RETJEH.webp" },
+  { name: "Sponsor BINEKAS", logo: "/BINEKAS.webp" },
   
 ] 
 
