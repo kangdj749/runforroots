@@ -8,6 +8,7 @@ const sponsors = [
   { name: "Sponsor KALBE", logo: "/KALBE.webp" },
   { name: "Sponsor VIVA", logo: "/VIVA.webp" },
   { name: "Sponsor soka", logo: "/soka.webp" },
+  { name: "Sponsor HOTINCREAM", logo: "/HOTINCREAM.webp" },
   { name: "Sponsor TV_HARMONI", logo: "/TV_HARMONI.webp" },
   { name: "Sponsor GRAHA_AQIQAH", logo: "/GRAHA_AQIQAH.webp" },
   { name: "Sponsor saung_taaruf", logo: "/saung_taaruf.webp" },
