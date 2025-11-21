@@ -12,7 +12,7 @@ const sponsors = [
   { name: "Sponsor TV_HARMONI", logo: "/TV_HARMONI.webp" },
   { name: "Sponsor GRAHA_AQIQAH", logo: "/GRAHA_AQIQAH.webp" },
   { name: "Sponsor saung_taaruf", logo: "/saung_taaruf.webp" },
-  { name: "Sponsor Salam Klinik", logo: "/Salam Klinik1.webp" },
+  { name: "Sponsor Salam Klinik", logo: "/Salam-Klinik1.webp" },
   { name: "Sponsor jnc_cookies", logo: "/jnc_cookies.webp" },
   { name: "Sponsor oriskin", logo: "/oriskin.webp" },
   { name: "Sponsor RRI_PRO", logo: "/RRI_PRO.webp" },
