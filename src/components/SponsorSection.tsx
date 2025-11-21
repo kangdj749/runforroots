@@ -50,7 +50,7 @@ const sponsors = [
   { name: "Sponsor RUANG EVENT.ID", logo: "/RUANG EVENT.ID.webp" },
   { name: "Sponsor AYAM PENYET", logo: "/AYAM PENYET.webp" },
   { name: "Sponsor MARKTEL", logo: "/MARKTEL1.webp" },
-  { name: "Sponsor BTRC", logo: "/BTRC.webp" },
+  { name: "Sponsor BTRC", logo: "/BTRC1.webp" },
   { name: "Sponsor PELARI RETJEH", logo: "/PELARI RETJEH.webp" },
   { name: "Sponsor BINEKAS", logo: "/BINEKAS.webp" },
   
